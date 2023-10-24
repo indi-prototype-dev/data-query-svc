@@ -32,10 +32,10 @@ public class QueryApplication {
     }
 
     private String findPNRById(String id) {
-    	MongoClient mongoClient = MongoClients.create("mongodb://indmongodb:j4Xc9J7xy5GUqo6y6BlK6xzbnLg7Op0TQee5Et53W9J29OIdRIwK2xY96det1Z1rWObI9fxkSguUACDbWvnoDA==@indmongodb.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@indmongodb@");
+    	MongoClient mongoClient = MongoClients.create("mongodb://cosmosrgeastus62e66a20-18ef-4499-8b71db:4jjchMt1NiQ9BXuewetEiGYiSgi1Fo5OfnzBlCQNIj58YXz7QcfRsGehaiPYi6dQhwAVdeCEZIHyACDbtrwjdg==@cosmosrgeastus62e66a20-18ef-4499-8b71db.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@indmongodb@");
     	
     	 // Get database
-        MongoDatabase database = mongoClient.getDatabase("gstinvoicedb");
+        MongoDatabase database = mongoClient.getDatabase("indmongodb");
 
         // Get collection
         MongoCollection<Document> collection = database.getCollection("bookingpnrcollection");
@@ -50,13 +50,13 @@ public class QueryApplication {
     }
 
     private String findInvoiceById(String id) {
-    	MongoClient mongoClient = MongoClients.create("mongodb://indmongodb:j4Xc9J7xy5GUqo6y6BlK6xzbnLg7Op0TQee5Et53W9J29OIdRIwK2xY96det1Z1rWObI9fxkSguUACDbWvnoDA==@indmongodb.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@indmongodb@");
+    	MongoClient mongoClient = MongoClients.create("mongodb://cosmosrgeastus62e66a20-18ef-4499-8b71db:4jjchMt1NiQ9BXuewetEiGYiSgi1Fo5OfnzBlCQNIj58YXz7QcfRsGehaiPYi6dQhwAVdeCEZIHyACDbtrwjdg==@cosmosrgeastus62e66a20-18ef-4499-8b71db.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@indmongodb@");
     	
     	// Get database
         MongoDatabase database = mongoClient.getDatabase("gstinvoicedb");
 
         // Get collection
-        MongoCollection<Document> collection = database.getCollection("bookingpnrcollection");
+        MongoCollection<Document> collection = database.getCollection("invoicecollection");
         
         Document queryResult = collection.find(Filters.eq("InvoiceNumber", id)).first();
         return queryResult.toJson();
