@@ -3,6 +3,7 @@ package com.indigo.gstinvoicing.dataaccess;
 import org.bson.Document;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,7 @@ public class QueryApplication {
 
 
     @GetMapping(path="/pnr/{id}",produces={ "application/json"})
+    @CrossOrigin(origins = "http://gst-ui-indigo-prototype-dev.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud")
     public String getPNRDetails(@PathVariable String id) {
     	  return findPNRById(id);
     }
@@ -45,6 +47,7 @@ public class QueryApplication {
     }
     
     @GetMapping(path="/invoice/{id}",produces={ "application/json"})
+    @CrossOrigin(origins = "http://gst-ui-indigo-prototype-dev.rh-squad-7f0bc321fea8726bc360106c441721a7-0000.eu-gb.containers.appdomain.cloud")    
     public String getInvoiceDetails(@PathVariable String id) {
     	  return findInvoiceById(id);
     }
