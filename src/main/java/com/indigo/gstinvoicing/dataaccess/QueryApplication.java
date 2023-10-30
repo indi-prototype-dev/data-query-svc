@@ -56,7 +56,7 @@ public class QueryApplication {
     	MongoClient mongoClient = MongoClients.create("mongodb://cosmosrgeastus62e66a20-18ef-4499-8b71db:4jjchMt1NiQ9BXuewetEiGYiSgi1Fo5OfnzBlCQNIj58YXz7QcfRsGehaiPYi6dQhwAVdeCEZIHyACDbtrwjdg==@cosmosrgeastus62e66a20-18ef-4499-8b71db.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@indmongodb@");
     	
     	// Get database
-        MongoDatabase database = mongoClient.getDatabase("gstinvoicedb");
+        MongoDatabase database = mongoClient.getDatabase("indmongodb");
 
         // Get collection
         MongoCollection<Document> collection = database.getCollection("invoicecollection");
